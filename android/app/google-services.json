@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "60811045152",
+    "project_id": "eventorg-513da",
+    "storage_bucket": "eventorg-513da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60811045152:android:aadc779b5b1f650b79cf45",
+        "android_client_info": {
+          "package_name": "com.example.Flutter_Project2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH_Dm7ObQ29M_j4Wj7b9VQXuEs6-HoXrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
