@@ -1,0 +1,85 @@
+import 'package:flutter/material.dart';
+
+class EventListPage extends StatefulWidget {
+  const EventListPage({Key? key}) : super(key: key);
+
+  @override
+  State<EventListPage> createState() => _EventListPageState();
+}
+
+class _EventListPageState extends State<EventListPage> {
+  List<String> events = [
+    "Event 1",
+    "Event 2",
+    "Event 3",
+    "Event 4",
+    "Womans Day - 8 March",
+    "Nurse Day - 12 Mays",
+    
+  ];
+
+  List<String> filteredEvents = [];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredEvents.addAll(events);
+  }
+
+  void filterEvents(String query) {
+    setState(() {
+      filteredEvents = events
+          .where((event) => event.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.transparent,
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              onChanged: (value) => filterEvents(value),
+              style: const TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                hintText: 'Search Events',
+                prefixIcon: const Icon(Icons.search, color: Colors.black),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: filteredEvents.length,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  title: Text(
+                    filteredEvents[index],
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                  onTap: () {
+                    // Do something when an event is tapped
+                  },
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
